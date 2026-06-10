@@ -1,7 +1,5 @@
 package Lecture1_adt;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Calendar;
 //import java.util.Date;
 
@@ -20,7 +18,10 @@ public class Transaction2 {
     private final int amount;
     private final Calendar date;
 
-    public Transaction2(int amount, @NotNull Calendar date) {
+    public Transaction2(int amount, Calendar date) {
+        if (date == null) {
+            throw new IllegalArgumentException("date cannot be null");
+        }
         this.amount = amount;
         this.date = date;
     }

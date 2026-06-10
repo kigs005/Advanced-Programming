@@ -1,7 +1,5 @@
 package Lecture1_adt;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Calendar;
 /**
  * There is still Exposure seen in Transaction3 in that if we make a list of 12 payments,
@@ -16,7 +14,10 @@ public class Transaction4 {
     private final int amount;
     private final Calendar date;
 
-    public Transaction4(int amount, @NotNull Calendar date) {
+    public Transaction4(int amount, Calendar date) {
+        if (date == null) {
+            throw new IllegalArgumentException("date cannot be null");
+        }
         this.amount = amount;
         this.date = (Calendar) date.clone();  // Defensive copying or Judicious Copying for Requires interfaces
     }

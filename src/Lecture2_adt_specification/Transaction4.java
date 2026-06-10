@@ -1,7 +1,5 @@
 package Lecture2_adt_specification;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Calendar;
 //import java.util.Date;
 
@@ -22,7 +20,10 @@ public class Transaction4 {
      * Instialises the field, attributes of a transaction
      * Creates a object of this
      */
-    public Transaction4(int amount, @NotNull Calendar date) {
+    public Transaction4(int amount, Calendar date) {
+        if (date == null) {
+            throw new IllegalArgumentException("date cannot be null");
+        }
         this.amount = amount;
         this.date = (Calendar) date.clone();
     }
